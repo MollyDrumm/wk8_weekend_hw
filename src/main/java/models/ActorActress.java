@@ -15,7 +15,6 @@ public class ActorActress {
     private String name;
     private int age;
     private List<Film> films;
-    private Director director;
 
     public ActorActress(){
 

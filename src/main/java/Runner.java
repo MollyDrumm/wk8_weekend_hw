@@ -1,8 +1,12 @@
-import db.DBHelper;
+import db.*;
 import models.ActorActress;
 import models.Director;
 import models.Film;
 import models.Studio;
+
+import java.util.List;
+
+import static db.DBDirector.getFilmsForDirector;
 
 public class Runner {
 
@@ -37,6 +41,19 @@ public class Runner {
         DBHelper.save(actorActress3);
         ActorActress actorActress4 = new ActorActress("Drew Barrymore", 43);
         DBHelper.save(actorActress4);
+
+
+        List<Film> filmsForDirector = DBDirector.getFilmsForDirector(director1);
+
+        List<Film> filmsForStudio = DBStudio.getFilmsForStudio(studio2);
+
+        DBFilm.addFilmToActorActress(film1, actorActress3);
+        DBFilm.addFilmToActorActress(film4, actorActress3);
+        DBFilm.addFilmToActorActress(film2, actorActress1);
+
+        List<Film> films = DBActorActress.getFilmsForActorAcresses(actorActress3);
+        List<ActorActress> actorActresses = DBFilm.getActorsActressesForFilms(film1);
+
     }
 
 }
